@@ -1,0 +1,32 @@
+{% extends "layouts/base-login.html" %}
+{% block body %}
+    <div class="login-div">
+        <form role="form" method="post" action="">
+            {% csrf_token %}
+            <div class="logo"></div>
+            <div class="title">Zachara</div>
+            <div class="auth-msg">
+                {% if msg %}
+                    <span class="login-span-error"> {{ msg }} </span>
+                {% else %}
+                    <span class="login-span-info">Sign in with your username and password</span>
+                {% endif %}
+            </div>
+            <div class="login-in">
+                <div class="username">
+                    <i class="ico ico-user"></i>
+                    {{ form.username }}
+                </div>
+                <div class="password">
+                    <i class="ico ico-pass"></i>
+                    {{ form.password }}
+                </div>
+            </div>
+            <button class="buttons" type="submit">Login</button>
+            <div class="link">
+                <a href="#">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content="Custom Customer Relationship Management for zachara.info"/>
+    <meta name="author" content="Baumgart Software"/>
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Specific Page CSS goes HERE  -->
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/icons.css' %}" rel="stylesheet"/>
+
+</head>
+<body>
+
+{% block sidebar %}
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+            <span class="image">
+                <img src="#" alt="">
+            </span>
+                <div class="text logo-text">
+                    <span class="name-logo">Zachara</span>
+                    <span class="desc-logo">Web developer</span>
+                </div>
+            </div>
+            <i class="bx bx-chevron-right toggle"></i>
+        </header>
+
+
+        <div class="menu-bar">
+            <div class="menu">
+                <li class="search-box">
+                    <i class="bx bx-search icon"></i>
+                    <input type="text" placeholder="Search...">
+                </li>
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="bx bx-alarm icon"></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="icon"></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="icon"></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="icon"></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="icon"></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+{% endblock %}
+
+{% block body %}
+{% endblock %}
+<footer>
+    <div class="footer">
+        <div class="copyright">
+            <p>Designed <span class="heart"></span> <a href="#">Baumgart Software</a> {% now 'Y' %}</p>
+        </div>
+    </div>
+</footer>
+
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+
+
+</html>
