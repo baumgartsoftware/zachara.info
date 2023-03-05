@@ -39,6 +39,6 @@ def logout_view(request):
     return redirect('login')
 
 
-@login_required()
+@login_required(login_url="/login")
 def dashboard_view(request):
     return render(request, "main/dashboard.html")

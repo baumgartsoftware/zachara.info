@@ -17,8 +17,8 @@
 </head>
 <body>
 
-{% block sidebar %}
-    <nav class="sidebar close">
+<div class="main">
+    <nav class="main-sidebar close">
         <header>
             <div class="image-text">
             <span class="image">
@@ -31,62 +31,110 @@
             </div>
             <i class="bx bx-chevron-right toggle"></i>
         </header>
-
-
         <div class="menu-bar">
             <div class="menu">
                 <li class="search-box">
                     <i class="bx bx-search icon"></i>
-                    <input type="text" placeholder="Search...">
+                    <label>
+                        <input type="text" placeholder="Search...">
+                    </label>
                 </li>
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a href="#">
-                            <i class="bx bx-alarm icon"></i>
+                            <i class="bx bxs-dashboard icon"></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                            <i class="icon"></i>
-                            <span class="text nav-text">Dashboard</span>
+                            <i class="bx bx-task-x icon"></i>
+                            <span class="text nav-text">My Tasks</span>
                         </a>
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                            <i class="icon"></i>
-                            <span class="text nav-text">Dashboard</span>
+                            <i class="bx bx-male-female icon"></i>
+                            <span class="text nav-text">Customers</span>
                         </a>
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                            <i class="icon"></i>
-                            <span class="text nav-text">Dashboard</span>
+                            <i class="bx bxs-school icon"></i>
+                            <span class="text nav-text">Companies</span>
                         </a>
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                            <i class="icon"></i>
-                            <span class="text nav-text">Dashboard</span>
+                            <i class="bx bx-task icon"></i>
+                            <span class="text nav-text">Tasks</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class="bx bx-euro icon"></i>
+                            <span class="text nav-text">Invoices</span>
                         </a>
                     </li>
                 </ul>
             </div>
+            <div class="bottom-content">
+                <li class="">
+                    <a href="#">
+                        <i class='bx bx-cog icon'></i>
+                        <span class="text nav-text">Settings</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+            </div>
         </div>
-
     </nav>
 
+    <div class="main-content close">
+        <div class="header-main-content">
+            <ul>
+                <li>
+                    <button class="buttons menu-links">Add Customer</button>
+                </li>
+                <li>
+                    <button class="buttons menu-links">Add Task</button>
+                </li>
+            </ul>
+            <a class="user-info">
+                <img src="{{ user.profile.photo.url }}" class="user-pic" alt="User Profile Image">
+
+                <div class="user-info-txt">
+
+                        <div class="notification">
+                            <a href="" role="button">{{ request.user.username }} <i class='bx bx-bell bx-tada notification-icon'></i></a>
+                        </div>
+
+                    <small>{{ request.user.get_full_name }}</small>
+                </div>
+            </a>
+        </div>
+        <div class="main-content-body">
+            {% block main-content-body %}
+            {% endblock %}
+        </div>
+
+        <footer>
+            <div class="copyright">
+                <p>Designed <span class="heart"></span> <a href="#">Baumgart Software</a> {% now 'Y' %}</p>
+            </div>
+        </footer>
+    </div>
+</div>
+
+
+{% block content %}
 {% endblock %}
 
-{% block body %}
-{% endblock %}
-<footer>
-    <div class="footer">
-        <div class="copyright">
-            <p>Designed <span class="heart"></span> <a href="#">Baumgart Software</a> {% now 'Y' %}</p>
-        </div>
-    </div>
-</footer>
 
 <script src="{% static 'js/script.js' %}"></script>
 

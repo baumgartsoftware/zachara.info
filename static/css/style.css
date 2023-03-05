@@ -41,6 +41,14 @@ body {
     transition: var(--tran-05);
 }
 
+.main {
+    display: flex;
+    opacity: 1;
+    transition: all 0.25s ease-in;
+    overflow: hidden;
+    position: relative;
+}
+
 .login-div {
     width: 380px;
     height: 629px;
@@ -263,14 +271,86 @@ a {
 
 .modal-body {
     position: relative;
-    flex: 1 1 auto;
-    padding: 1rem;
+    padding-left: 288px;
+}
+
+/*------------------------
+    headerbar definition
+  -------------------------*/
+.main-content {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    min-height: 100vh;
+    width: calc(100% - 250px);
+    top: 1px;
+    right: 0;
+}
+
+.main-content.close {
+    width: calc(100% - 88px);
+}
+
+.header-main-content {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+
+.header-main-content ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.header-main-content li {
+    float: left;
+}
+
+.user-info {
+    display: flex;
+    margin-left: auto;
+    right: 0;
+    color: var(--text-gray-color);
+}
+
+.notification a{
+    font-size: 24px;
+    color: var(--text-color);
+    padding-left: 5px;
+}
+
+.user-info .user-info-txt {
+    padding: 6px;
+}
+
+
+.header-main-content .user-info small {
+    display: block;
+    font-size: 16px;
+    padding-left: 5px;
+}
+
+.user-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 4.5rem;
+    box-shadow: 6px 6px 15px #cbced1, -6px -6px 15px #ffffff;
+}
+
+.notification-icon {
+    color: var(--text-alerts-color);
+}
+
+.main-content-body {
+    padding: 15px;
 }
 
 /*------------------------
     sidebar definition
   -------------------------*/
-.sidebar {
+.main-sidebar {
     position: fixed;
     top: 0;
     left: 0;
@@ -285,12 +365,11 @@ a {
 
 }
 
-.sidebar.close {
+.main-sidebar.close {
     width: 88px;
-
 }
 
-.sidebar li {
+.main-sidebar li {
     height: 50px;
     list-style: none;
     display: flex;
@@ -298,13 +377,13 @@ a {
     margin-top: 10px;
 }
 
-.sidebar header .image,
-.sidebar .icon {
+.main-sidebar header .image,
+.main-sidebar .icon {
     min-height: 60px;
     border-radius: 6px;
 }
 
-.sidebar .icon {
+.main-sidebar .icon {
     min-width: 60px;
     border-radius: 6px;
     height: 100%;
@@ -314,33 +393,33 @@ a {
     font-size: 22px;
 }
 
-.sidebar .text,
-.sidebar .icon {
+.main-sidebar .text,
+.main-sidebar .icon {
     color: var(--text-color);
     transition: var(--tran-03);
 }
 
-.sidebar .text {
+.main-sidebar .text {
     font-size: 17px;
     font-weight: 500;
     white-space: nowrap;
     opacity: 1;
 }
 
-.sidebar.close .text {
+.main-sidebar.close .text {
     opacity: 0;
 }
 
-.sidebar header {
+.main-sidebar header {
     position: relative;
 }
 
-.sidebar header .image-text {
+.main-sidebar header .image-text {
     display: flex;
     align-items: center;
 }
 
-.sidebar header .logo-text {
+.main-sidebar header .logo-text {
     display: flex;
     flex-direction: column;
 }
@@ -357,18 +436,18 @@ header .image-text .desc-logo {
     display: block;
 }
 
-.sidebar header .image {
+.main-sidebar header .image {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.sidebar header .image img {
+.main-sidebar header .image img {
     width: 40px;
     border-radius: 6px;
 }
 
-.sidebar header .toggle {
+.main-sidebar header .toggle {
     position: absolute;
     top: 50%;
     right: -25px;
@@ -384,18 +463,18 @@ header .image-text .desc-logo {
     transition: var(--tran-05);
 }
 
-.sidebar.close .toggle {
+.main-sidebar.close .toggle {
     transform: translateY(-50%) rotate(0deg);
 }
 
-.sidebar li .search-box {
+.main-sidebar li .search-box {
     border-radius: 6px;
     background-color: var(--body-bg-color);
     cursor: pointer;
     transition: var(--tran-05);
 }
 
-.sidebar li .search-box input {
+.main-sidebar li .search-box input {
     height: 100%;
     width: 100%;
     outline: none;
@@ -407,7 +486,7 @@ header .image-text .desc-logo {
     transition: var(--tran-05);
 }
 
-.sidebar li a {
+.main-sidebar li a {
     list-style: none;
     height: 100%;
     background-color: transparent;
@@ -419,12 +498,12 @@ header .image-text .desc-logo {
     transition: var(--tran-03);
 }
 
-.sidebar li a:hover {
+.main-sidebar li a:hover {
     background: var(--buttons-bg-color);
 }
 
-.sidebar li a:hover .icon
-.sidebar li a:hover .text {
+.main-sidebar li a:hover .icon,
+.main-sidebar li a:hover .text {
     color: var(--text-color);
 }
 
@@ -432,7 +511,7 @@ header .image-text .desc-logo {
     display: none;
 }
 
-.sidebar .menu-bar {
+.main-sidebar .menu-bar {
     height: calc(100% - 55px);
     display: flex;
     flex-direction: column;
@@ -445,23 +524,25 @@ header .image-text .desc-logo {
     footer definition
   -------------------------*/
 
-.footer {
-    padding-left: 17.1875rem;
+footer {
+    display: flex;
+    margin-top: auto;
+    padding: 5px;
     background-color: #fff;
 }
 
-.footer .copyright {
+footer .copyright {
     background-color: #F9F9F9;
     padding: 0.9375rem;
 }
 
-.footer .copyright p {
+footer .copyright p {
     text-align: center;
     margin: 0;
     font-size: 14px;
 }
 
-.footer .copyright a {
+footer .copyright a {
     color: var(--buttons-bg-color);
 }
 
@@ -485,7 +566,7 @@ header .image-text .desc-logo {
 }
 
 /*------------------------
-    icons
+    icons and pictures
   -------------------------*/
 .ico {
     display: inline-block;
